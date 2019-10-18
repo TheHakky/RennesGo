@@ -1,4 +1,5 @@
-package rennesgo.data;
+import org.junit.jupiter.api.Test;
+import rennesgo.data.Profile;
 
 import java.util.Set;
 
@@ -24,17 +25,27 @@ class TestTest {
 
     @org.junit.jupiter.api.Test
     void addPrefLineManipulationTest() {
-/*        profileTest.addPrefLine("Test123");
+        profileTest.addPrefLine("Test123");
 
         final Set<String> prefLines = profileTest.getPrefLines();
-        assertTrue(prefLines.contains("Test123"));*/
+        assertTrue(prefLines.contains("Test123"));
     }
 
     @org.junit.jupiter.api.Test
-    void getUsername() {
+    void getUsernameTest() {
+        assertEquals("Testus Maximum", profileTest.getUsername());
     }
 
-    @org.junit.jupiter.api.Test
-    void getPrefLines() {
+    @Test
+    void getPrefLinesTest() {
+        profileTest.addPrefLine("test");
+        assertTrue(!profileTest.getPrefLines().isEmpty());
+    }
+
+    @Test
+    void removePrefLineTest() {
+        profileTest.addPrefLine("test");
+        profileTest.removePrefLine("test");
+        assertTrue(profileTest.getPrefLines().isEmpty());
     }
 }
