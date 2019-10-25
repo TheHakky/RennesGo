@@ -11,9 +11,9 @@ vous pourrez rajouter des fonctionnalités, modifier le front-end et le back-end
 
 - [ ] ****Base****: test unitaire
 - [X] ****Base****: mise en place convention code (checkstyle)
-- [ ] ****Base****: mise en place d'outil d'analyse de code (spotbugs)
+- [X] ****Base****: mise en place d'outil d'analyse de code (spotbugs)
 - [X] ****Base****: mise en place mesure couverture de code (echec si < x)
-- [ ] ****Base****: mise en place mesure de mutation extreme
+- [X] ****Base****: mise en place mesure de mutation extreme
 (ces mises en place se font dans le fichier maven pom.xml, cf. le fichier du projet CPOO de l'an dernier).
 - [ ] ajouter des tests de sécurité
 - [ ] ajouter des tests de performance
