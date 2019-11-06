@@ -8,7 +8,7 @@ pipeline {
             steps { git branch: 'back-end', url: 'https://github.com/TheHakky/RennesGo'}
         }
         stage ('Build') {
-            steps { rtMavenRun (pom: 'pom.xml', goals: 'clean install'}
+            steps { rtMavenRun (pom: 'pom.xml', goals: 'clean install') }
         }
     }
 }
