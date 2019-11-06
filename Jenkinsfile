@@ -5,10 +5,10 @@ pipeline {
     }
     stages { 
         stage ('Git') {
-            steps { git branch: 'back-end', url: 'https://github.com/TheHakky/RennesGo/tree/back-end/back-end'}
+            steps { git branch: 'back-end', url: 'https://github.com/TheHakky/RennesGo'}
         }
         stage ('Build') {
-            steps { sh 'mvn clean compile' }
+            steps { sh 'mvn -f back-end/pom.xml clean compile' }
         }
     }
 }
