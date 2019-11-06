@@ -5,10 +5,14 @@ pipeline {
     }
     stages { 
         stage ('SCM Checkout') {
-            git 'https://github.com/TheHakky/RennesGo'
+            steps {
+                git 'https://github.com/TheHakky/RennesGo'
+            }
         }
         stage ('Build') {
-            sh 'mvn clean install'
+            steps {
+                sh 'mvn clean install'
+            }
         }
     }
 }
