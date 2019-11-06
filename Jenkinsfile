@@ -8,7 +8,7 @@ pipeline {
             steps { git branch: 'back-end', url: 'https://github.com/TheHakky/RennesGo'}
         }
         stage ('Build') {
-            steps { bat 'mvn clean compile' }
+            steps { sh 'mvn clean compile' }
         }
     }
 }
