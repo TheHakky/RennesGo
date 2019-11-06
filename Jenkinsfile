@@ -4,15 +4,11 @@ pipeline {
         maven 'maven' 
     }
     stages { 
-        stage ('SCM Checkout') {
-            steps {
-                git 'https://github.com/TheHakky/RennesGo'
-            }
+        stage ('Git') {
+            steps { git branch: 'back-end', url: 'https://github.com/TheHakky/RennesGo'}
         }
         stage ('Build') {
-            steps {
-                sh 'mvn clean install'
-            }
+            steps { rtMavenRun (pom: 'pom.xml', goals: 'clean install'}
         }
     }
 }
