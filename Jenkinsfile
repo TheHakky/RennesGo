@@ -1,5 +1,5 @@
 pipeline { 
-    agent { dockerfile true }  
+    agent { /*dockerfile true*/ }  
     tools { 
         maven 'maven' 
     }
