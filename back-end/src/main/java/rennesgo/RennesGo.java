@@ -4,7 +4,7 @@ import java.util.Collections;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(exclude = {SecurityFilterAutoConfiguration.class })
+@SpringBootApplication //(exclude = {SecurityFilterAutoConfiguration.class })
 public final class RennesGo {
 
 	private RennesGo() {
