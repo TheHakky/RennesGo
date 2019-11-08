@@ -1,5 +1,5 @@
 pipeline { 
-    agent { /*dockerfile true*/ }  
+    agent any /*{ dockerfile true }  */
     tools { 
         maven 'maven' 
     }
@@ -17,7 +17,7 @@ pipeline {
             steps { sh 'mvn -f back-end/pom.xml package' }   
         }
         stage ('Install') {
-            steps { sh 'mvn -f back-end/pom.xml install' }   
+            steps { echo 'TODO install step' /*sh 'mvn -f back-end/pom.xml install'*/ }   
         }
         stage ('Build') {
             steps { echo 'TODO build step' }
