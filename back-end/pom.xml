@@ -121,7 +121,7 @@
                                         <limit>
                                             <counter>LINE</counter>      <!-- TODO Is LINE adapted? -->
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.90</minimum>       <!-- TODO Is this ratio too big? -->
+                                            <minimum>0.0</minimum>       <!-- TODO Is this ratio too big? -->
                                         </limit>
                                     </limits>
                                 </rule>
