@@ -5,6 +5,7 @@
 
     <groupId>fr.rennesgo</groupId>
     <artifactId>rennesgo-backend</artifactId>
+    <packaging>jar</packaging>
     <version>1.0.0-SNAPSHOT</version>
 
     <properties>
