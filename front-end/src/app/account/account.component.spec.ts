@@ -26,7 +26,10 @@ describe('AccountComponent', () => {
         NoopAnimationsModule,
         AngularFontAwesomeModule
       ],
-      providers: [Network, User]
+      providers: [
+        Network,
+        User,
+      ]
     })
     .compileComponents();
   }));
@@ -40,4 +43,5 @@ describe('AccountComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
