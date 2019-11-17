@@ -17,7 +17,7 @@ pipeline {
             steps { sh 'mvn -f back-end/pom.xml package' }   
         }
         stage ('Install') {
-            steps { /*echo 'TODO install step'*/ sh 'mvn -f back-end/pom.xml install' }   
+            steps { echo 'TODO install step' /*sh 'mvn -f back-end/pom.xml install'*/ }   
         }
         stage ('Build') {
             steps { echo 'TODO build step' }
