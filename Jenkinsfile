@@ -20,7 +20,7 @@ pipeline {
             steps { /*echo 'TODO install step'*/ sh 'mvn -f back-end/pom.xml install' }   
         }
         stage ('Docker Build') {
-            steps { sh 'docker build -f .' }
+            steps { sh 'docker build .' }
         }
     }
 }
