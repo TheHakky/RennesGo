@@ -1,4 +1,9 @@
 pipeline { 
+    environment {
+        registry = "thehakky/projet-devops"
+        registryCredential = 'dockerhub'
+        dockerImage = ''
+    }
     agent any /*{ dockerfile true }*/  
     tools { 
         maven 'maven' 
@@ -20,7 +25,20 @@ pipeline {
             steps { /*echo 'TODO install step'*/ sh 'mvn -f back-end/pom.xml install' }   
         }
         stage ('Docker Build') {
-            steps { sh 'docker build .' }
+            steps { 
+                script { /*'docker build .'*/ 
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                }
+            }
+        }
+        stage ('Deploy Image') {
+            steps {
+                script {
+                    docker.withRegistry('', registryCredential) {
+                        dockerImage.push()
+                    }
+                }
+            }
         }
     }
 }
