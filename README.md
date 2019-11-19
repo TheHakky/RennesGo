@@ -39,7 +39,7 @@ vous pourrez rajouter des fonctionnalités, modifier le front-end et le back-end
 
 ## deploy
 
-- [ ] **Base**: se débrouiller pour faire du continuous delivery: à chaque nouveau build, les images docker sont déployées sur votre machine, un serveur, etc.
+- [X] **Base**: se débrouiller pour faire du continuous delivery: à chaque nouveau build, les images docker sont déployées sur votre machine, un serveur, etc.
 - [ ] comment garder une session ouverte alors que le service est remplacé? => trouver une solution
 - [ ] comment avoir de la redondance côté back-end pour tenir des pannes?
 
