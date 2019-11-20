@@ -23,7 +23,7 @@ pipeline {
                 /*withEnv(["CHROME_BIN=/usr/bin/google-chrome"]) {*/
                  sh '''
                     cd front-end
-                    npm run ng -- test --single-run true --code-coverage
+                    npm run ng -- test --watch=false --code-coverage
                  '''  
                 //}
             }
