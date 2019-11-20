@@ -16,10 +16,8 @@ pipeline {
             steps { sh '''
                 cd front-end
                 npm install
+                npm run ng serve
             ''' }   
-        }
-        stage ('Run') {
-            steps { sh 'npm run ng serve' }   
         }
         stage ('Test') {
             steps { sh 'ng test --code-coverage' }   
