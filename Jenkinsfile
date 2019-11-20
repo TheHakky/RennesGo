@@ -20,12 +20,12 @@ pipeline {
         }
         stage ('Test') {
             steps {
-                withEnv(["CHROME_BIN=/usr/bin/google-chrome"]) {
-                     sh '''
-                        cd front-end
-                        npm run ng test --watch=false --code-coverage
-                     '''  
-                }
+                /*withEnv(["CHROME_BIN=/usr/bin/google-chrome"]) {*/
+                 sh '''
+                    cd front-end
+                    npm run ng test --watch=false --code-coverage
+                 '''  
+                //}
             }
         }
         stage ('Lint') {
