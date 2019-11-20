@@ -16,14 +16,13 @@ pipeline {
             steps { sh '''
                 cd front-end
                 npm install
-                npm run ng serve
             ''' }   
         }
         stage ('Test') {
-            steps { sh 'ng test --code-coverage' }   
+            steps { sh 'npm run ng test --code-coverage' }   
         }
         stage ('Lint') {
-            steps { sh 'ng lint' }   
+            steps { sh 'npm run ng lint' }   
         }
         stage ('Build') {
             steps { /*echo 'TODO install step'*/ sh 'ng build' }   
