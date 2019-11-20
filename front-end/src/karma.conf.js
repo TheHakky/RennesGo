@@ -49,7 +49,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome', 'MyChrome'],
+    browsers: ['MyChrome'],
     singleRun: true,
     restartOnFileChange: true,
 
