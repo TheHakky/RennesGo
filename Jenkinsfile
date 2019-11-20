@@ -6,7 +6,7 @@ pipeline {
     }*/
     agent any /*{ dockerfile true }*/  
     tools { 
-        nodejs 'npm' 
+        nodejs 'nodejs' 
     }
     stages { 
         stage ('Git') {
