@@ -39,7 +39,7 @@ describe('workspace-project App: ', () => {
 
     // check the checkbox
     page.checkTheBox();
-    
+
     // create account
     page.clickLoginBtn();
 

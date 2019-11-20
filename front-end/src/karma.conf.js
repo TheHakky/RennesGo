@@ -18,15 +18,46 @@ module.exports = function (config) {
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, '../coverage/rennesgo'),
       reports: ['html', 'lcovonly', 'text-summary'],
-      fixWebpackSourcePaths: true
+      fixWebpackSourcePaths: true,
+      // enforce percentage thresholds
+      // anything under these percentages will cause karma to fail with an exit code of 1 if not running in watch mode
+      thresholds: {
+        emitWarning: false, // set to `true` to not fail the test command when thresholds are not met
+        // thresholds for all files
+        global: {
+          statements: 100,
+          lines: 100,
+          branches: 100,
+          functions: 100
+        },
+        // thresholds per file
+        each: {
+          statements: 100,
+          lines: 100,
+          branches: 100,
+          functions: 100,
+          overrides: {
+            'baz/component/**/*.js': {
+              statements: 98
+            }
+          }
+        }
+      },
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
-    restartOnFileChange: true
+    browsers: ['MyChrome'],
+    singleRun: true,
+    restartOnFileChange: true,
+
+    customLaunchers: {
+      MyChrome: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-gpu', '--disable-web-security']
+      }
+    }
   });
 };
