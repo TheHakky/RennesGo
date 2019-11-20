@@ -18,6 +18,9 @@ pipeline {
                 npm install
             ''' }   
         }
+        stage ('Run') {
+            steps { sh 'npm run ng serve' }   
+        }
         stage ('Test') {
             steps { sh 'ng test --code-coverage' }   
         }
