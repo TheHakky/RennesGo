@@ -16,6 +16,7 @@ pipeline {
             steps { sh '''
                 cd front-end
                 npm install
+                npm audit fix
             ''' }   
         }
         stage ('Test') {
