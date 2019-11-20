@@ -13,7 +13,7 @@ pipeline {
             steps { git branch: 'workspace', url: 'https://github.com/TheHakky/RennesGo'}
         }
         stage ('Install') {
-            steps { sh 'npm -f front-end/package.json install' }   
+            steps { sh 'npm install' }   
         }
         stage ('Test') {
             steps { sh 'ng test --code-coverage' }   
