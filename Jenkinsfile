@@ -19,13 +19,22 @@ pipeline {
             ''' }   
         }
         stage ('Test') {
-            steps { sh 'npm run ng test --code-coverage' }   
+            steps { sh '''
+                cd front-end
+                npm run ng test --code-coverage
+            ''' }   
         }
         stage ('Lint') {
-            steps { sh 'npm run ng lint' }   
+            steps { sh '''
+               cd front-end
+               npm run ng lint
+            ''' }   
         }
         stage ('Build') {
-            steps { /*echo 'TODO install step'*/ sh 'ng build' }   
+            steps { sh '''
+                cd front-end
+                npm run ng build
+            ''' }   
         }
         /*stage ('Docker Build') {
             steps { 
