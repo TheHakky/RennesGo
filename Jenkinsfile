@@ -23,6 +23,7 @@ pipeline {
             steps {
                 /*withEnv(["CHROME_BIN=/usr/bin/google-chrome"]) {*/
                  sh '''
+                    export CHROME_BIN=/usr/bin/chrome
                     cd front-end
                     npm run ng test --watch=false --browsers=MyChrome --code-coverage
                  '''  
