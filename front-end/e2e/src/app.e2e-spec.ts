@@ -3,65 +3,11 @@ import { browser, logging } from 'protractor';
 
 describe('workspace-project App: ', () => {
   let page: AppPage;
-  //let mock;
 
   beforeEach(() => {
     page = new AppPage();
   });
   
-/*
-  beforeEach(() => {
-    mock = require('protractor-http-mock');
-
-    mock([
-      {
-        request: {
-          path: 'go/user/new',
-          method: 'POST'
-        },
-        response: {
-          data: {
-            username: 'somebody'
-          }
-        }
-      },
-      {
-        request: {
-          path: 'go/login',
-          method: 'POST'
-        },
-        response: {
-          data: {
-            username: 'somebody'
-          }
-        }
-      },
-      {
-        request: {
-          path: 'go/profile/get',
-          method: 'GET'
-        },
-        response: {
-          data: {
-            prefLines: [],
-            username: 'somebody'
-          }
-        }
-      },
-      {
-        request: {
-          path: 'go/logout',
-          method: 'GET'
-        },
-        response: {
-          data: {
-            username: 'somebody'
-          }
-        }
-      }
-    ]);
-  });
-*/
   it('should display welcome message', () => {
     page.navigateTo();
     expect(page.getTitleText()).toEqual('Rennesgo');
@@ -86,7 +32,6 @@ describe('workspace-project App: ', () => {
 
   });
 
-  /*
   it('should be able to create account and log in', () => {
 
     // type account cridentials
@@ -102,7 +47,20 @@ describe('workspace-project App: ', () => {
     expect(page.getDisplayedUsername()).toEqual('somebody');
 
   });
-  */
+
+  it('should be able to mark a line as prefferd', () => {
+
+    // find an element star anc click it
+    page.FindStarAndClick();
+
+    browser.sleep(10000);
+
+    // check that its added to prefferd lines
+    expect(page.prefferedExist()).toBeTruthy();
+
+    browser.sleep(5000);
+
+  });
  
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser

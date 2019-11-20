@@ -30,4 +30,22 @@ export class AppPage {
     return element(by.css('#username')).getText() as Promise<string>;
   }
 
+  FindStarAndClick() {
+    let item = element.all(by.css('.star span')).first();
+
+    console.log('logg: ' + item);
+
+    item.click();
+  }
+
+  prefferedExist() {
+    let item = element(by.css('.preffered')).element(by.css('.star'));
+
+    if(item) {
+      return true;
+    } 
+
+    return false;
+  }
+
 }
