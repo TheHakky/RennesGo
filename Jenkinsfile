@@ -5,9 +5,9 @@ pipeline {
         dockerImage = ''
     }*/
     agent any /*{ dockerfile true }*/  
-    /*tools { 
-        maven 'maven' 
-    }*/
+    tools { 
+        npm 'npm' 
+    }
     stages { 
         stage ('Git') {
             steps { git branch: 'workspace', url: 'https://github.com/TheHakky/RennesGo'}
