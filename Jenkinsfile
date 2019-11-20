@@ -1,9 +1,9 @@
 pipeline { 
-    /*environment {
+    environment {
         registry = "thehakky/projet-devops"
         registryCredential = 'dockerhub'
         dockerImage = ''
-    }*/
+    }
     agent any /*{ dockerfile true }*/  
     tools { 
         nodejs 'nodejs' 
@@ -21,13 +21,11 @@ pipeline {
         }
         stage ('Test') {
             steps {
-                /*withEnv(["CHROME_BIN=/usr/bin/google-chrome"]) {*/
                  sh '''
                     export CHROME_BIN=/usr/bin/chrome
                     cd front-end
                     npm run ng test --watch=false --browsers=MyChrome --code-coverage
                  '''  
-                //}
             }
         }
         stage ('Lint') {
@@ -42,10 +40,10 @@ pipeline {
                 npm run ng build
             ''' }   
         }
-        /*stage ('Docker Build') {
+        stage ('Docker Build') {
             steps { 
                 script {  
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER fe"
                 }
             }
         }
@@ -60,8 +58,8 @@ pipeline {
         }
         stage('Remove Unused docker image') {
             steps{
-              sh "docker rmi $registry:$BUILD_NUMBER"
+              sh "docker rmi $registry:$BUILD_NUMBER fe"
             }
-        }*/
+        }
     }
 }
