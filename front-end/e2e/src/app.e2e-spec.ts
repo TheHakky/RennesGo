@@ -3,12 +3,11 @@ import { browser, logging } from 'protractor';
 
 describe('workspace-project App: ', () => {
   let page: AppPage;
-  //let mock;
+  // let mock;
 
   beforeEach(() => {
     page = new AppPage();
   });
-  
 /*
   beforeEach(() => {
     mock = require('protractor-http-mock');
@@ -94,7 +93,7 @@ describe('workspace-project App: ', () => {
 
     // check the checkbox
     page.checkTheBox();
-    
+
     // create account
     page.clickLoginBtn();
 
@@ -103,7 +102,7 @@ describe('workspace-project App: ', () => {
 
   });
   */
- 
+
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
