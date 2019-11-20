@@ -19,11 +19,13 @@ pipeline {
             ''' }   
         }
         stage ('Test') {
-            withEnv(["CHROME_BIN=/usr/bin/google-chrome"]) {
-                 sh '''
-                    cd front-end
-                    npm run ng test --code-coverage
-                 '''  
+            steps {
+                withEnv(["CHROME_BIN=/usr/bin/google-chrome"]) {
+                     sh '''
+                        cd front-end
+                        npm run ng test --code-coverage
+                     '''  
+                }
             }
         }
         stage ('Lint') {
