@@ -87,8 +87,13 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
+            ],
+            "codeCoverageExclude": [
+              "src/app/interceptor/*.ts",
+              "src/app/account/account.component.ts"
             ]
           }
+          
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
