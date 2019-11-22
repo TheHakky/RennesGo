@@ -31,7 +31,7 @@ export class AppPage {
   }
 
   FindStarAndClick() {
-    let item = element.all(by.css('.star span')).first();
+    const item = element.all(by.css('.star span')).first();
 
     console.log('logg: ' + item);
 
@@ -39,11 +39,11 @@ export class AppPage {
   }
 
   prefferedExist() {
-    let item = element(by.css('.preffered')).element(by.css('.star'));
+    const item = element(by.css('.preffered')).element(by.css('.star'));
 
-    if(item) {
+    if (item) {
       return true;
-    } 
+    }
 
     return false;
   }

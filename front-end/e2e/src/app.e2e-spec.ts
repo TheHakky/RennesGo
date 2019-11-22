@@ -7,7 +7,7 @@ describe('workspace-project App: ', () => {
   beforeEach(() => {
     page = new AppPage();
   });
-  
+
   it('should display welcome message', () => {
     page.navigateTo();
     expect(page.getTitleText()).toEqual('Rennesgo');
@@ -61,7 +61,7 @@ describe('workspace-project App: ', () => {
     browser.sleep(5000);
 
   });
- 
+
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);

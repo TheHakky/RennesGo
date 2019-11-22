@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { tap } from "rxjs/operators";
 import {
   HttpRequest,
   HttpHandler,
@@ -7,16 +6,16 @@ import {
   HttpInterceptor,
   HttpResponse,
   HttpErrorResponse
-} from "@angular/common/http";
-import { Observable } from "rxjs";
+} from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Profile } from '../model/Profile';
 
 @Injectable()
 export class MyInterceptorService implements HttpInterceptor {
 
-  constructor() { 
+  constructor() {
 
-    let profile = {
+    const profile = {
       prefLines: [],
       username: ''
     };
@@ -26,10 +25,10 @@ export class MyInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    if ((req.url.includes('go/user/new/') && (req.method == 'POST'))
-          || (req.url.includes('go/login') && (req.method == 'POST'))
-          || (req.url.includes('go/profile/get') && (req.method == 'GET'))
-          || (req.url.includes('go/logout') && (req.method == 'GET'))) {
+    if ((req.url.includes('go/user/new/') && (req.method === 'POST'))
+          || (req.url.includes('go/login') && (req.method === 'POST'))
+          || (req.url.includes('go/profile/get') && (req.method === 'GET'))
+          || (req.url.includes('go/logout') && (req.method === 'GET'))) {
 
       return new Observable(observer => {
 
@@ -39,16 +38,16 @@ export class MyInterceptorService implements HttpInterceptor {
           {
             prefLines: [],
             username: 'somebody'
-          }, 
+          },
           status: 200
         }));
 
         observer.complete();
       });
- 
-    } else if (req.url.includes('go/profile/lines/new/') && (req.method == 'PUT')) {
 
-      let profile = JSON.parse(localStorage.getItem('profile'));
+    } else if (req.url.includes('go/profile/lines/new/') && (req.method === 'PUT')) {
+
+      const profile = JSON.parse(localStorage.getItem('profile'));
 
       profile.prefLines.push(req.url.split('go/profile/lines/new/')[1]);
 
@@ -62,28 +61,28 @@ export class MyInterceptorService implements HttpInterceptor {
           {
             prefLines: profile.prefLines,
             username: 'somebody'
-          }, 
+          },
           status: 200
         }));
 
         observer.complete();
       });
 
-    } else if (req.url.includes('go/profile/lines/del/') && (req.method == 'PUT')) {
+    } else if (req.url.includes('go/profile/lines/del/') && (req.method === 'PUT')) {
 
-      let profile = JSON.parse(localStorage.getItem('profile'));
-      let line = req.url.split('go/profile/lines/del/')[1];
-      let i: number = 0;
+      const profile = JSON.parse(localStorage.getItem('profile'));
+      const line = req.url.split('go/profile/lines/del/')[1];
+      let i = 0;
 
       // delete the item;
       do {
 
-        if(profile.prefLines[i] === line) {
-          profile.prefLines.splice(i,1);
+        if (profile.prefLines[i] === line) {
+          profile.prefLines.splice(i, 1);
         }
 
         i++;
-      } while(i < profile.prefLines.length);
+      } while (i < profile.prefLines.length);
 
       localStorage.setItem('profile', JSON.stringify(profile));
 
@@ -95,45 +94,45 @@ export class MyInterceptorService implements HttpInterceptor {
           {
             prefLines: profile.prefLines,
             username: 'somebody'
-          }, 
+          },
           status: 200
         }));
 
         observer.complete();
       });
-    } else if (req.url.includes('dataset=lignes-de-bus-du-reseau-star&rows=200') && (req.method == 'GET')) {
+    } else if (req.url.includes('dataset=lignes-de-bus-du-reseau-star&rows=200') && (req.method === 'GET')) {
 
-      let obj = {
+      const obj = {
         nhits: 164,
         parameters: {
-          dataset: ["lignes-de-bus-du-reseau-star"],
-          timezone: "UTC",
+          dataset: ['lignes-de-bus-du-reseau-star'],
+          timezone: 'UTC',
           rows: 200,
-          format: "json"
+          format: 'json'
         },
-        records:[
+        records: [
           {
-            datasetid:"lignes-de-bus-du-reseau-star",
-            recordid:"6d7936b0d5f7124cfd8e704d0afcfb1e5de21daa",
+            datasetid: 'lignes-de-bus-du-reseau-star',
+            recordid: '6d7936b0d5f7124cfd8e704d0afcfb1e5de21daa',
             fields: {
-              couleurligne: "#95c11e",
-              couleurtexteligne:"#1a171b",
-              nomfamillecommerciale:"CHRONOSTAR",
-              nomlong:"Cesson-Sévigné (Champs Blancs) <> Rennes  <> Chantepie (Rosa Parks)",
-              nomcourt:"C1",
-              id: "0001"
+              couleurligne: '#95c11e',
+              couleurtexteligne: '#1a171b',
+              nomfamillecommerciale: 'CHRONOSTAR',
+              nomlong: 'Cesson-Sévigné (Champs Blancs) <> Rennes  <> Chantepie (Rosa Parks)',
+              nomcourt: 'C1',
+              id: '0001'
             }
           },
           {
-              datasetid: "lignes-de-bus-du-reseau-star",
-              recordid: "1223c1f42b50834eb156a64fce806939cfeb9555",
+              datasetid: 'lignes-de-bus-du-reseau-star',
+              recordid: '1223c1f42b50834eb156a64fce806939cfeb9555',
               fields: {
-                couleurligne: "#6f2282",
-                couleurtexteligne: "#ffffff",
-                nomfamillecommerciale: "CHRONOSTAR",
-                nomlong: "Rennes (ZA Saint-Sulpice) <> Saint-Grégoire (Grand Quartier)",
-                nomcourt: "C4",
-                id: "0004"
+                couleurligne: '#6f2282',
+                couleurtexteligne: '#ffffff',
+                nomfamillecommerciale: 'CHRONOSTAR',
+                nomlong: 'Rennes (ZA Saint-Sulpice) <> Saint-Grégoire (Grand Quartier)',
+                nomcourt: 'C4',
+                id: '0004'
               }
             }
         ]
@@ -150,7 +149,7 @@ export class MyInterceptorService implements HttpInterceptor {
         observer.complete();
       });
     }
-      
+
     // pass through other requests.
     return next.handle(req);
   }

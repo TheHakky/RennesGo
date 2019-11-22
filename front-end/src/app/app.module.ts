@@ -9,7 +9,7 @@ import { MatGridListModule, MatIconModule, MatBadgeModule, MatTabsModule } from 
 import { AccountComponent } from './account/account.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MyInterceptorService } from './interceptor/my-interceptor.service'
+import { MyInterceptorService } from './interceptor/my-interceptor.service';
 
 @NgModule({
   declarations: [
