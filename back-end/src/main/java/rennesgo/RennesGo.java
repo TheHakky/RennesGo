@@ -3,14 +3,13 @@ package rennesgo;
 import java.util.Collections;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication //(exclude = {SecurityFilterAutoConfiguration.class })
-@ComponentScan({ "rennesgo.auth","rennesgo.controller", "rennesgo.data"})
+@ComponentScan({ "rennesgo.auth", "rennesgo.controller", "rennesgo.data"})
 public class RennesGo {
 
-	public RennesGo() {
+	private RennesGo() {
 
 	}
 
