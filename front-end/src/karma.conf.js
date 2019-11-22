@@ -22,13 +22,13 @@ module.exports = function (config) {
       // enforce percentage thresholds
       // anything under these percentages will cause karma to fail with an exit code of 1 if not running in watch mode
       thresholds: {
-        emitWarning: false, // set to `true` to not fail the test command when thresholds are not met
+        emitWarning: true, // set to `true` to not fail the test command when thresholds are not met
         // thresholds for all files
         global: {
-          statements: 100,
-          lines: 100,
-          branches: 100,
-          functions: 100
+          statements: 50,
+          lines: 50,
+          branches: 50,
+          functions: 50
         },
         // thresholds per file
         each: {
@@ -50,7 +50,7 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['MyChrome'],
-    singleRun: true,
+    singleRun: false,
     restartOnFileChange: true,
 
     customLaunchers: {
