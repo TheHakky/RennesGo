@@ -1,47 +1,60 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import rennesgo.data.Profile;
 import rennesgo.data.ProfileComponent;
 
 
+import java.util.Set;
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
 
 public class TestProfileComponent {
-    ProfileComponent pc;
+    private ProfileComponent profileComponent;
 
     @BeforeEach
     void setUp() {
-        pc = new ProfileComponent();
-        pc.addProfile("user1");
-
+        profileComponent = new ProfileComponent();
+        profileComponent.addProfile("user1");
     }
 
     @Test
-    void constructorTest() {
-        assertEquals(1, pc.getProfiles().size());
+    void getProfilesTest() {
+        assertEquals(1, profileComponent.getProfiles().size());
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"user1, user2"})
+    @ValueSource(strings = {"user3, user2"})
     void addProfileTest(final String candidate) {
-        assertEquals(candidate, pc.addProfile(candidate).getUsername());
-        assertTrue(!pc.getProfiles().isEmpty());
+        assertEquals(candidate, profileComponent.addProfile(candidate).getUsername());
+        assertTrue(!profileComponent.getProfiles().isEmpty());
     }
 
-    @Test
-    void findProfileTest() {
-        assertTrue(pc.findProfileOf("user1").count() != 0);
-        assertTrue(pc.findProfileOf("user3").count() == 0);
+    @ParameterizedTest
+    @MethodSource("provideForFindProfileTest")
+    void findProfileTest(String user, int count) {
+        assertEquals(count, profileComponent.findProfileOf(user).count());
     }
 
     @Test
     void deleteProfileTest() {
-        pc.delProfile("user2");
-        assertTrue(!pc.getProfiles().isEmpty());
-        pc.delProfile("user1");
-        assertTrue(pc.getProfiles().isEmpty());
+        profileComponent.delProfile("user2");
+        assertTrue(!profileComponent.getProfiles().isEmpty());
+        profileComponent.delProfile("user1");
+        assertTrue(profileComponent.getProfiles().isEmpty());
+    }
+
+    private static Stream<Arguments> provideForFindProfileTest() {
+        return Stream.of(
+                Arguments.of("user1", 1),
+                Arguments.of("user3", 0)
+        );
     }
 }
 

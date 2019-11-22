@@ -14,7 +14,7 @@
 
     <module name="TreeWalker">
         <module name="EqualsAvoidNull"/>
-        <module name="FinalClass"/>
+        <!--<module name="FinalClass"/> -->
         <module name="FinalLocalVariable"/>
         <module name="FinalParameters"/>
         <module name="IllegalThrows"/>
