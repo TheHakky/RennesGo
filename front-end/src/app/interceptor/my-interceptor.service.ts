@@ -5,7 +5,6 @@ import {
   HttpEvent,
   HttpInterceptor,
   HttpResponse,
-  HttpErrorResponse
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Profile } from '../model/Profile';

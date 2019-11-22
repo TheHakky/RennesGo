@@ -33,19 +33,12 @@ export class AppPage {
   FindStarAndClick() {
     const item = element.all(by.css('.star span')).first();
 
-    console.log('logg: ' + item);
-
     item.click();
   }
 
   prefferedExist() {
-    const item = element(by.css('.preffered')).element(by.css('.star'));
-
-    if (item) {
-      return true;
-    }
-
-    return false;
+    const exist = element(by.css('.star .span')).isPresent();
+    return exist;
   }
 
 }
