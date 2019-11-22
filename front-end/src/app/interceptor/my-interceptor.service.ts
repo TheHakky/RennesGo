@@ -10,7 +10,6 @@ import {
 } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Profile } from '../model/Profile';
-import { Line } from '../model/Line';
 
 @Injectable()
 export class MyInterceptorService implements HttpInterceptor {
