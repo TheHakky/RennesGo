@@ -35,7 +35,7 @@ vous pourrez rajouter des fonctionnalités, modifier le front-end et le back-end
 
 ## package
 
-- [ ] **Base**: écrire 2 dockerfile qui lanceront le back et le front comme des micro-services (cf les dockerfile du projet CPOO de l'an dernier).
+- [X] **Base**: écrire 2 dockerfile qui lanceront le back et le front comme des micro-services (cf les dockerfile du projet CPOO de l'an dernier).
 
 ## deploy
 

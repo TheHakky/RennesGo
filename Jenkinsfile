@@ -1,6 +1,6 @@
 pipeline { 
     environment {
-        registry = "thehakky/projet-devops"
+        registry = "thehakky/back-end"
         registryCredential = 'dockerhub'
         dockerImage = ''
     }
