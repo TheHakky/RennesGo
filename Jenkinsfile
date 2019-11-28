@@ -26,12 +26,22 @@ pipeline {
         }
         stage ('Docker Build') {
             steps { 
-                script { /*'docker build .'*/ 
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                }
+                //script { /*'docker build .'*/
+                sh '''
+                    docker rmi -f "$(docker images -q back-end-image)"
+                    docker build . -t back-end-image
+                '''
+                //}
             }
         }
-        stage ('Deploy Image') {
+        stage ('Docker Run') {
+            steps { 
+                //script { /*'docker build .'*/
+                sh 'docker run back-end-image'
+                //}
+            }
+        }
+        /*stage ('Deploy Image') {
             steps {
                 script {
                     docker.withRegistry('', registryCredential) {
@@ -44,6 +54,6 @@ pipeline {
             steps{
               sh "docker rmi $registry:$BUILD_NUMBER"
             }
-        }
+        }*/
     }
 }
