@@ -38,7 +38,7 @@ pipeline {
                     fi
                     '''*/
                     sh '''
-                        docker rmi -f $(docker images -q back-end-image)
+                        docker rmi -f "$(docker images -q back-end-image)"
                         docker build . -t back-end-image
                     '''
                 //}
