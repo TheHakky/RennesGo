@@ -29,7 +29,7 @@ pipeline {
                 script { /*'docker build .'*/ 
                     //dockerImage = docker.build registry + ":$BUILD_NUMBER"
                     if("${docker images -q back-end-image}" == "") {
-                        docker rmi -f $(docker images -q back-end-image)
+                        docker rmi -f "${docker images -q back-end-image}"
                     } else {
                         docker build . -t back-end-image
                     }
