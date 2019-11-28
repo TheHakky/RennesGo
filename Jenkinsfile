@@ -31,7 +31,7 @@ pipeline {
                     if("${docker images -q back-end-image}" == "") {
                         docker rmi -f "${docker images -q back-end-image}"
                     } else {
-                        docker build . -t back-end-image
+                        'docker build . -t back-end-image'
                     }
                 }
             }
