@@ -33,7 +33,8 @@ pipeline {
                     } else {
                         sh 'docker build . -t back-end-image'
                     }*/
-                    sh 'docker build . -t back-end-image'
+                    //sh 'docker build . -t back-end-image'
+                    sh 'docker rmi -f "${docker images -q back-end-image}"'
                 }
             }
         }
