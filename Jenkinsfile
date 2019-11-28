@@ -26,21 +26,18 @@ pipeline {
         }
         stage ('Docker Build') {
             steps { 
-                //script { /*'docker build .'*/ 
-                    //dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                    /*sh '''
-                    result=$(docker images -q back-end-image)
-                    if[[ "$result" ]]; 
-                    then 
-                        docker rmi -f "$result"
-                    else
-                        docker build . -t back-end-image
-                    fi
-                    '''*/
-                    sh '''
-                        docker rmi -f "$(docker images -q back-end-image)"
-                        docker build . -t back-end-image
-                    '''
+                //script { /*'docker build .'*/
+                sh '''
+                    docker rmi -f "$(docker images -q back-end-image)"
+                    docker build . -t back-end-image
+                '''
+                //}
+            }
+        }
+        stage ('Docker Run') {
+            steps { 
+                //script { /*'docker build .'*/
+                sh 'docker run back-end-image'
                 //}
             }
         }
