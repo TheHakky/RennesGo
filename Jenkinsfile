@@ -28,7 +28,7 @@ pipeline {
             steps { 
                 //script { /*'docker build .'*/
                 sh '''
-                    docker rmi -f "$(docker images -q back-end-image)"
+                    docker rmi -f "$(docker stop $(docker ps -q --filter ancestor=back-end-image))"
                     docker build . -t back-end-image
                 '''
                 //}
