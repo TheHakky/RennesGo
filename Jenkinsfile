@@ -30,7 +30,7 @@ pipeline {
                     //dockerImage = docker.build registry + ":$BUILD_NUMBER"
                     sh '''
                     result=$(docker images -q back-end-image)
-                    if[[ -n "$result" ]]; 
+                    if[[ "$result" ]]; 
                     then 
                         docker rmi -f "$result"
                     else
