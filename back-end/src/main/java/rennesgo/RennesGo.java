@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan({ "rennesgo.auth", "rennesgo.controller", "rennesgo.data"})
 public class RennesGo {
 
-	private RennesGo() {
+	protected RennesGo() {
 
 	}
 
