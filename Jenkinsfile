@@ -37,7 +37,7 @@ pipeline {
         stage ('Docker Run') {
             steps { 
                 //script { /*'docker build .'*/
-                sh 'docker run back-end-image'
+                sh 'docker run --detach back-end-image'
                 //}
             }
         }
