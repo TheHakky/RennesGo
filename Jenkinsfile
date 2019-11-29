@@ -48,12 +48,17 @@ pipeline {
         }
         stage ('Docker Build') {
             steps { 
-                script {  
+                /*script {  
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                }
+                }*/
+                sh '''
+                    docker rmi -f "$(docker stop $(docker ps -q --filter ancestor=front-end-image))"
+                    docker system prune -f
+                    docker build . -t front-end-image
+                '''
             }
         }
-        stage ('Deploy Image') {
+        /*stage ('Deploy Image') {
             steps {
                 script {
                     docker.withRegistry('', registryCredential) {
@@ -61,11 +66,16 @@ pipeline {
                     }
                 }
             }
+        }*/
+        stage ('Docker Run') {
+            steps { 
+                sh 'docker run --detach front-end-image
+            }
         }
-        stage('Remove Unused docker image') {
+        /*stage('Remove Unused docker image') {
             steps{
               sh "docker rmi $registry:$BUILD_NUMBER" 
             }
-        }
+        }*/
     }
 }
