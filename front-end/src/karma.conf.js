@@ -50,7 +50,7 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['MyChrome'],
-    singleRun: false,
+    singleRun: true,
     restartOnFileChange: true,
 
     customLaunchers: {

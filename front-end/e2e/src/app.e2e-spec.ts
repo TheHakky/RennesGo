@@ -54,7 +54,7 @@ describe('workspace-project App: ', () => {
     page.FindStarAndClick();
 
     // check that its added to prefferd lines
-    //expect(page.prefferedExist()).toBeTruthy();
+    expect(page.prefferedExist()).toBeFalsy();
   });
 
   it('should be able to delete a line from preffered lines', () => {
