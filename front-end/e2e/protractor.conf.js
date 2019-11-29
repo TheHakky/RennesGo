@@ -14,7 +14,7 @@ exports.config = {
         args: ['--headless', '--no-sandbox']
     }
   },
-  chromeDriver: path.join(paths.e2e, './node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.37.544315'),
+  //chromeDriver: path.join(paths.e2e, './node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.37.544315'),
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
