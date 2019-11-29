@@ -37,6 +37,7 @@ pipeline {
         stage ('System Test') { //npm run protractor e2e/protractor.conf.js
             steps { sh '''
                 cd front-end
+                npm install -g protractor
                 webdriver-manager update
                 npm run ng e2e --protractor-config=e2e/protractor.conf.js
                 ''' }   
