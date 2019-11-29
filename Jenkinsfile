@@ -33,6 +33,7 @@ pipeline {
             steps { sh '''
                 cd front-end
                 ./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --versions.chrome=78.0.3904.105
+                ./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager start
                 npm run ng e2e --protractorConfig=e2e/protractor.conf.js
                 ''' }   
         }
