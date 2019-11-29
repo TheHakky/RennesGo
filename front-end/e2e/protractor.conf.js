@@ -8,13 +8,13 @@ exports.config = {
   specs: [
     './src/**/*.e2e-spec.ts'
   ],
-  chromeDriver: path.join(paths.e2e, './node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.37.544315'),
   capabilities: {
     'browserName': 'chrome',
     chromeOptions: {
         args: ['--headless', '--no-sandbox']
     }
   },
+  chromeDriver: path.join(paths.e2e, './node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.37.544315'),
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
