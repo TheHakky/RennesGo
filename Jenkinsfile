@@ -1,9 +1,4 @@
 pipeline { 
-    environment {
-        registry = "thehakky/front-end"
-        registryCredential = 'dockerhub'
-        dockerImage = ''
-    }
     agent any /*{ dockerfile true }*/  
     tools { 
         nodejs 'nodejs' 
@@ -37,6 +32,7 @@ pipeline {
         stage ('System Test') { //npm run protractor e2e/protractor.conf.js
             steps { sh '''
                 cd front-end
+                ./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --versions.chrome=78.0.3904.105
                 npm run ng e2e --protractor-config=e2e/protractor.conf.js
                 ''' }   
         }
