@@ -6,4 +6,4 @@ RUN npm install
 
 COPY . .
 
-CMD npm run ng serve
+CMD ng serve
