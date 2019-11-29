@@ -1,6 +1,8 @@
 FROM node:13.1.0
 
-COPY front-end/package*.json /
+COPY front-end/package*.json /usr/src/rennesgo/
+
+WORKDIR /usr/src/rennesgo/
 
 EXPOSE 4200
 
@@ -8,6 +10,6 @@ RUN npm install
 
 RUN npm install -g @angular/cli@7.3.9
 
-COPY . .
+COPY . /usr/src/rennesgo/
 
 CMD npm run ng serve
