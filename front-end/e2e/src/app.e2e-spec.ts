@@ -65,6 +65,14 @@ describe('workspace-project App: ', () => {
     expect(page.prefferedExist()).toBeFalsy();
   });
 
+  it('should be able to log out', () => {
+    // click logout button
+    page.clickLogoutBtn();
+    
+    // check that the logout is done
+    expect(page.checkIfUsernameDisplayed()).toBeFalsy();
+  });
+
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);

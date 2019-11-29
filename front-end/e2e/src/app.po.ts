@@ -32,13 +32,20 @@ export class AppPage {
 
   FindStarAndClick() {
     const item = element.all(by.css('.star span')).first();
-
     item.click();
   }
 
   prefferedExist() {
     const exist = element(by.css('.star .span')).isPresent();
     return exist;
+  }
+
+  clickLogoutBtn() {
+    element(by.css('#logoutBtn')).click();
+  }
+
+  checkIfUsernameDisplayed() {
+    return element(by.css('#username')).isPresent();
   }
 
 }
