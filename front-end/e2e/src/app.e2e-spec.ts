@@ -68,7 +68,6 @@ describe('workspace-project App: ', () => {
   it('should be able to log out', () => {
     // click logout button
     page.clickLogoutBtn();
-    
     // check that the logout is done
     expect(page.checkIfUsernameDisplayed()).toBeFalsy();
   });
