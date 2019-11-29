@@ -12,4 +12,4 @@ RUN npm install -g @angular/cli@7.3.9
 
 COPY front-end/. /usr/src/rennesgo/
 
-CMD npm run ng serve
+CMD ["npm","run","ng","serve","--host 0.0.0.0","--port 4200"]
