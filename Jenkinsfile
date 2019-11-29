@@ -69,7 +69,7 @@ pipeline {
         }*/
         stage ('Docker Run') {
             steps { 
-                sh 'docker run --detach front-end-image
+                sh 'docker run --detach front-end-image'
             }
         }
         /*stage('Remove Unused docker image') {
