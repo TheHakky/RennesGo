@@ -37,7 +37,7 @@ pipeline {
         stage ('System Test') {
             steps { sh '''
                 cd front-end
-                protractor e2e-protractor.conf.js
+                npm run protractor e2e-protractor.conf.js
                 ''' }   
         }
         stage ('Build') {
