@@ -10,6 +10,6 @@ RUN npm install
 
 RUN npm install -g @angular/cli@7.3.9
 
-COPY . /usr/src/rennesgo/
+COPY front-end/. /usr/src/rennesgo/
 
 CMD npm run ng serve
