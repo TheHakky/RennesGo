@@ -34,6 +34,12 @@ pipeline {
                npm run ng lint
             ''' }   
         }
+        stage ('System Test') {
+            steps { sh '''
+                cd front-end
+                protractor e2e-protractor.conf.js
+                ''' }   
+        }
         stage ('Build') {
             steps { sh '''
                 cd front-end
