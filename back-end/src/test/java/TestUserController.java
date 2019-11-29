@@ -15,7 +15,6 @@ import org.springframework.web.server.ResponseStatusException;
 import rennesgo.controller.ProfileController;
 import rennesgo.controller.UserController;
 import rennesgo.data.ProfileComponent;
-import sun.security.acl.PrincipalImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;

@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    back-end:
+        container_name: back-end
+        build: .
+        ports:
+            - 4444:4444
+
+    front-end:
+        container_name: front-end
+        image: front-end-test
+        depends_on:
+            - back-end
+        ports:
+            - 4200:4200
+    
