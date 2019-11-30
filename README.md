@@ -24,22 +24,22 @@ vous pourrez rajouter des fonctionnalités, modifier le front-end et le back-end
 - [ ] **Base**: test front-end unitaire (nécessite de mocker le backend, et l'API REST), avec https://www.protractortest.org
 - [ ] **Base**: test système (front + back)
 - [X] **Base**: mise en place convention code
-- [ ] **Base**: mise en place d'outil d'analyse de code TypeScript
+- [X] **Base**: mise en place d'outil d'analyse de code TypeScript
 - [X] **Base**: mise en place mesure couverture de code (echec si < x)
 - [ ] ajouter des tests de sécurité
 
 ## build
 
-- [ ] **Base**: écrire 2 jenkinsfile pour décrire comme le front et le back sont construits
+- [X] **Base**: écrire 2 jenkinsfile pour décrire comme le front et le back sont construits
 - [X] **Base**: installer un jenkins sur vos machines perso ou ailleurs (si pas possible alors me contacter) et utiliser les jenkinsfile le principe du devops est que les outils bloquent le build s'ils ne sont pas contents : le code doit être de la meilleure qualité possible.
 
 ## package
 
-- [ ] **Base**: écrire 2 dockerfile qui lanceront le back et le front comme des micro-services (cf les dockerfile du projet CPOO de l'an dernier).
+- [X] **Base**: écrire 2 dockerfile qui lanceront le back et le front comme des micro-services (cf les dockerfile du projet CPOO de l'an dernier).
 
 ## deploy
 
-- [ ] **Base**: se débrouiller pour faire du continuous delivery: à chaque nouveau build, les images docker sont déployées sur votre machine, un serveur, etc.
+- [X] **Base**: se débrouiller pour faire du continuous delivery: à chaque nouveau build, les images docker sont déployées sur votre machine, un serveur, etc.
 - [ ] comment garder une session ouverte alors que le service est remplacé? => trouver une solution
 - [ ] comment avoir de la redondance côté back-end pour tenir des pannes?
 
