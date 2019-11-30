@@ -1,9 +1,4 @@
 pipeline { 
-    environment {
-        registry = "thehakky/front-end"
-        registryCredential = 'dockerhub'
-        dockerImage = ''
-    }
     agent any /*{ dockerfile true }*/  
     tools { 
         nodejs 'nodejs' 
@@ -34,6 +29,12 @@ pipeline {
                npm run ng lint
             ''' }   
         }
+        stage ('System Test') { //npm run protractor e2e/protractor.conf.js
+            steps { sh '''
+                cd front-end
+                npm run ng e2e --protractorConfig=e2e/protractor.conf.js
+                ''' }   
+        }
         stage ('Build') {
             steps { sh '''
                 cd front-end
@@ -42,12 +43,17 @@ pipeline {
         }
         stage ('Docker Build') {
             steps { 
-                script {  
+                /*script {  
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                }
+                }*/
+                sh '''
+                    docker rmi -f "$(docker stop $(docker ps -q --filter ancestor=front-end-image))"
+                    docker system prune -f
+                    docker build . -t front-end-image
+                '''
             }
         }
-        stage ('Deploy Image') {
+        /*stage ('Deploy Image') {
             steps {
                 script {
                     docker.withRegistry('', registryCredential) {
@@ -55,11 +61,16 @@ pipeline {
                     }
                 }
             }
+        }*/
+        stage ('Docker Run') {
+            steps { 
+                sh 'docker run --detach front-end-image'
+            }
         }
-        stage('Remove Unused docker image') {
+        /*stage('Remove Unused docker image') {
             steps{
               sh "docker rmi $registry:$BUILD_NUMBER" 
             }
-        }
+        }*/
     }
 }

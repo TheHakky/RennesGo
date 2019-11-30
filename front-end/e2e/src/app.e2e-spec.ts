@@ -50,16 +50,26 @@ describe('workspace-project App: ', () => {
 
   it('should be able to mark a line as prefferd', () => {
 
-    // find an element star anc click it
+    // find an element star and click it
     page.FindStarAndClick();
 
-    browser.sleep(10000);
+    // check that its added to prefferd lines
+    expect(page.prefferedExist()).toBeFalsy();
+  });
+
+  it('should be able to delete a line from preffered lines', () => {
+    // find an element star and click it
+    page.FindStarAndClick();
 
     // check that its added to prefferd lines
-    expect(page.prefferedExist()).toBeTruthy();
+    expect(page.prefferedExist()).toBeFalsy();
+  });
 
-    browser.sleep(5000);
-
+  it('should be able to log out', () => {
+    // click logout button
+    page.clickLogoutBtn();
+    // check that the logout is done
+    expect(page.checkIfUsernameDisplayed()).toBeFalsy();
   });
 
   afterEach(async () => {
@@ -69,9 +79,5 @@ describe('workspace-project App: ', () => {
       level: logging.Level.SEVERE,
     } as logging.Entry));
   });
-/*
-  afterEach(() => {
-    mock.teardown();
-  });
-*/
+
 });

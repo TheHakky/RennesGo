@@ -32,20 +32,20 @@ export class AppPage {
 
   FindStarAndClick() {
     const item = element.all(by.css('.star span')).first();
-
-    console.log('logg: ' + item);
-
     item.click();
   }
 
   prefferedExist() {
-    const item = element(by.css('.preffered')).element(by.css('.star'));
+    const exist = element(by.css('.star .span')).isPresent();
+    return exist;
+  }
 
-    if (item) {
-      return true;
-    }
+  clickLogoutBtn() {
+    element(by.css('#logoutBtn')).click();
+  }
 
-    return false;
+  checkIfUsernameDisplayed() {
+    return element(by.css('#username')).isPresent();
   }
 
 }
