@@ -36,8 +36,7 @@ export class AppPage {
   }
 
   prefferedExist() {
-    const exist = element(by.css('.star .span')).isPresent();
-    return exist;
+    return element(by.css('.star .span')).isPresent();
   }
 
   clickLogoutBtn() {
