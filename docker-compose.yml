@@ -1,15 +1,15 @@
 version: '3'
 services:
     back-end:
-	build:
+        build:
 	    context: .
 	    dockerfile: DockerfileBack
-        image: back-end-image
-        ports:
+	image: back-end-image
+	ports:
 	    - "4444:4444"
 
     front-end:
-	build:
+        build:
 	    context: .
 	    dockerfile: DockerfileFront
 	image: front-end-image
