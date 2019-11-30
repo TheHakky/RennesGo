@@ -26,18 +26,22 @@ pipeline {
         }
         stage ('Docker Build') {
             steps { 
-                //script { /*'docker build .'*/
-                sh '''
-                    docker rmi -f "$(docker stop $(docker ps -q --filter ancestor=back-end-image))"
-                    docker build . -t back-end-image
-                '''
+                //script { /*docker rmi -f "$(docker stop $(docker ps -q --filter ancestor=back-end-image))"*/
+                sh 'docker-compose build back-end'
                 //}
             }
         }
         stage ('Docker Run') {
             steps { 
                 //script { /*'docker build .'*/
-                sh 'docker run --detach back-end-image'
+                sh 'docker-compose up --detach back-end'
+                //}
+            }
+        }
+        stage ('Docker Prune') {
+            steps { 
+                //script { /*'docker build .'*/
+                sh 'docker system prune -f'
                 //}
             }
         }
