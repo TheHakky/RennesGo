@@ -23,7 +23,7 @@ export class MyInterceptorService implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
+/*
     if ((req.url.includes('go/user/new/') && (req.method === 'POST'))
           || (req.url.includes('go/login') && (req.method === 'POST'))
           || (req.url.includes('go/profile/get') && (req.method === 'GET'))
@@ -148,7 +148,7 @@ export class MyInterceptorService implements HttpInterceptor {
         observer.complete();
       });
     }
-
+*/
     // pass through other requests.
     return next.handle(req);
   }
