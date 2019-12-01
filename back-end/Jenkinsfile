@@ -24,7 +24,7 @@ pipeline {
         stage ('Install') {
             steps { /*echo 'TODO install step'*/ sh 'mvn -f back-end/pom.xml install' }   
         }
-        stage ('Docker Build') {
+        /*stage ('Docker Build') {
             steps { 
                 //script { //docker rmi -f "$(docker stop $(docker ps -q --filter ancestor=back-end-image))"
                 sh 'docker-compose build back-end'
@@ -43,20 +43,6 @@ pipeline {
                 //script { 
                 sh 'docker system prune -f'
                 //}
-            }
-        }
-        /*stage ('Deploy Image') {
-            steps {
-                script {
-                    docker.withRegistry('', registryCredential) {
-                        dockerImage.push()
-                    }
-                }
-            }
-        }
-        stage('Remove Unused docker image') {
-            steps{
-              sh "docker rmi $registry:$BUILD_NUMBER"
             }
         }*/
     }
