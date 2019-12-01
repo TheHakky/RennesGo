@@ -1,6 +1,6 @@
 {
   "/go/*": {
-    "target": "http://localhost:4444",
+    "target": "http://back-end:4444",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
