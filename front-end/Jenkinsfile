@@ -7,11 +7,10 @@ pipeline {
         stage ('Git') {
             steps { git branch: 'master', url: 'https://github.com/TheHakky/RennesGo'}
         }
-        stage ('Install') {
+        stage ('Install') { //npm audit fix
             steps { sh '''
                 cd front-end
                 npm install
-                npm audit fix
             ''' }   
         }
         stage ('Test') {
