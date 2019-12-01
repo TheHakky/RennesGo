@@ -30,11 +30,7 @@ vous pourrez rajouter des fonctionnalités, modifier le front-end et le back-end
 
 ## build
 
-<<<<<<< HEAD
 - [X] **Base**: écrire 2 jenkinsfile pour décrire comme le front et le back sont construits
-=======
-- [ ] **Base**: écrire 2 jenkinsfile pour décrire comme le front et le back sont construits
->>>>>>> d15f7e5cb7bbfc07312baa97d0ef2c33ea994813
 - [X] **Base**: installer un jenkins sur vos machines perso ou ailleurs (si pas possible alors me contacter) et utiliser les jenkinsfile le principe du devops est que les outils bloquent le build s'ils ne sont pas contents : le code doit être de la meilleure qualité possible.
 
 ## package
