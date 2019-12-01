@@ -32,7 +32,7 @@ pipeline {
         stage ('System Test') { //npm run protractor e2e/protractor.conf.js
             steps { sh '''
                 cd front-end
-                npm run ng e2e --port 4201 --protractorConfig=e2e/protractor.conf.js
+                npm run ng e2e --port 4201
                 ''' }   
         }
         stage ('Build') {
