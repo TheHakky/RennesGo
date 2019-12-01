@@ -5,7 +5,7 @@ pipeline {
     }
     stages { 
         stage ('Git') {
-            steps { git branch: 'workspace', url: 'https://github.com/TheHakky/RennesGo'}
+            steps { git branch: 'master', url: 'https://github.com/TheHakky/RennesGo'}
         }
         stage ('Install') {
             steps { sh '''
