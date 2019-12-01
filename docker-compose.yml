@@ -13,7 +13,7 @@ services:
       context: .
       dockerfile: DockerfileFront
     image: front-end-image
-    #depends_on:
-     # - back-end
+    depends_on:
+      - back-end
     ports:
       - "4242:4242"
