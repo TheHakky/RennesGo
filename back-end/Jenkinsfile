@@ -24,13 +24,13 @@ pipeline {
         stage ('Install') {
             steps { /*echo 'TODO install step'*/ sh 'mvn -f back-end/pom.xml install' }   
         }
-        /*stage ('Docker Build') {
+        stage ('Docker Build') {
             steps { 
                 //script { //docker rmi -f "$(docker stop $(docker ps -q --filter ancestor=back-end-image))"
                 sh 'docker-compose build back-end'
                 //}
             }
-        }*/
+        }
         /*stage ('Docker Run') {
             steps { 
                 //script { 
