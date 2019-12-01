@@ -1,0 +1,60 @@
+pipeline { 
+    agent any /*{ dockerfile true }*/  
+    tools { 
+        nodejs 'nodejs' 
+    }
+    stages { 
+        stage ('Git') {
+            steps { git branch: 'workspace', url: 'https://github.com/TheHakky/RennesGo'}
+        }
+        stage ('Install') {
+            steps { sh '''
+                cd front-end
+                npm install
+                npm audit fix
+            ''' }   
+        }
+        stage ('Test') {
+            steps {
+                 sh '''
+                    export CHROME_BIN=/usr/bin/chrome
+                    cd front-end
+                    npm run ng test --watch=false --browsers=MyChrome --code-coverage
+                 '''  
+            }
+        }
+        stage ('Lint') {
+            steps { sh '''
+               cd front-end
+               npm run ng lint
+            ''' }   
+        }
+        stage ('System Test') { //npm run protractor e2e/protractor.conf.js
+            steps { sh '''
+                cd front-end
+                npm run ng e2e --protractorConfig=e2e/protractor.conf.js
+                ''' }   
+        }
+        stage ('Build') {
+            steps { sh '''
+                cd front-end
+                npm run ng build
+            ''' }   
+        }
+        stage ('Docker Build') {
+            steps {
+                sh 'docker-compose build front-end'
+            }
+        }
+        stage ('Docker Run') {
+            steps { 
+                sh 'docker-compose up --detach front-end'
+            }
+        }
+        stage ('Docker Prune') {
+            steps {
+                sh 'docker system prune -f'
+            }
+        }
+    }
+}
