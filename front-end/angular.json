@@ -60,7 +60,7 @@
           "options": {
             "browserTarget": "rennesgo:build",
             "proxyConfig": "proxy.conf.json",
-            "port": 4200,
+            "port": 4242,
             "host": "0.0.0.0"
           },
           "configurations": {
