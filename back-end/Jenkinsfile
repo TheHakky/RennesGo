@@ -27,7 +27,7 @@ pipeline {
         stage ('Docker Build') {
             steps { 
                 //script { //docker rmi -f "$(docker stop $(docker ps -q --filter ancestor=back-end-image))"
-                sh 'docker stop $(docker ps -a -q) || true'
+                sh 'docker stop back-endpipeline_backend_1 || true'
                 sh 'docker system prune -f'
                 sh 'docker-compose build backend'
                 //}

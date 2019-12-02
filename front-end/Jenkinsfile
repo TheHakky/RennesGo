@@ -42,7 +42,7 @@ pipeline {
         }
         stage ('Docker Build') {
             steps {
-                sh 'docker stop $(docker ps -a -q) || true'
+                sh 'docker stop front-endpipeline_frontend_1 || true'
                 sh 'docker system prune -f'
                 sh 'docker-compose build frontend'
             }
