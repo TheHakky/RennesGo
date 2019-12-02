@@ -27,8 +27,8 @@ pipeline {
         stage ('Docker Build') {
             steps { 
                 //script { //docker rmi -f "$(docker stop $(docker ps -q --filter ancestor=back-end-image))"
-                sh 'chmod +x network.sh'
-                sh './network.sh rennesgo_docker_network 172.168.12.'
+                sh 'chmod +x back-end/network.sh'
+                sh 'back-end/network.sh rennesgo_docker_network 172.168.12.'
                 sh 'docker stop back-endpipeline_backend_1 || true'
                 sh 'docker system prune -f'
                 sh 'docker-compose build backend'
