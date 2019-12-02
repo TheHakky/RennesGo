@@ -31,10 +31,10 @@ pipeline {
                 //}
             }
         }
-        /*stage ('Docker Run') {
+        stage ('Docker Run') {
             steps { 
                 //script { 
-                sh 'docker-compose up --detach back-end'
+                sh 'docker-compose up --no-deps -d back-end'
                 //}
             }
         }
@@ -44,6 +44,6 @@ pipeline {
                 sh 'docker system prune -f'
                 //}
             }
-        }*/
+        }
     }
 }
