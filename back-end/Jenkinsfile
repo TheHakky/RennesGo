@@ -40,12 +40,12 @@ pipeline {
                 //}
             }
         }
-        stage ('Docker Prune') {
+        /*stage ('Docker Prune') {
             steps { 
                 //script { 
                 sh 'docker system prune -f'
                 //}
             }
-        }
+        }*/
     }
 }

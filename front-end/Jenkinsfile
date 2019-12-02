@@ -52,10 +52,10 @@ pipeline {
                 sh 'docker-compose up --no-deps -d frontend'
             }
         }
-        stage ('Docker Prune') {
+        /*stage ('Docker Prune') {
             steps {
                 sh 'docker system prune -f'
             }
-        }
+        }*/
     }
 }
