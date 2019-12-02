@@ -42,12 +42,12 @@ pipeline {
         }
         stage ('Docker Build') {
             steps {
-                sh 'docker-compose build front-end'
+                sh 'docker-compose build frontend'
             }
         }
         stage ('Docker Run') {
             steps { 
-                sh 'docker-compose up --no-deps -d front-end'
+                sh 'docker-compose up --no-deps -d frontend'
             }
         }
         stage ('Docker Prune') {

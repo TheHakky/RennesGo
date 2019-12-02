@@ -27,14 +27,14 @@ pipeline {
         stage ('Docker Build') {
             steps { 
                 //script { //docker rmi -f "$(docker stop $(docker ps -q --filter ancestor=back-end-image))"
-                sh 'docker-compose build back-end'
+                sh 'docker-compose build backend'
                 //}
             }
         }
         stage ('Docker Run') {
             steps { 
                 //script { 
-                sh 'docker-compose up --no-deps -d back-end'
+                sh 'docker-compose up --no-deps -d backend'
                 //}
             }
         }
