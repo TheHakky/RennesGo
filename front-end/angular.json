@@ -120,6 +120,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
+            "proxyConfig": "proxy.confTS.json",
             "devServerTarget": "rennesgo:serve",
             "port": 4200
           },
