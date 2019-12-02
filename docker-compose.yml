@@ -2,25 +2,18 @@ version: '3'
 services:
   back-end:
     build: back-end
-    networks:
-      localnetwork:
-          ipv4_address: 10.18.1.10
-  
+      context: .
+      dockerfile: DockerfileBack
+    image: back-end-image
+    ports:
+      - "4444:4444"
+
   front-end:
     build: front-end
+      context: .
+      dockerfile: DockerfileFront
+    image: front-end-image
+    #depends_on:
+     # - back-end
     ports:
-    - "4242:4242"
-    networks:
-      localnetwork:
-          ipv4_address: 10.18.1.11
-
-  
-
-
-networks:
-  localnetwork:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-      - subnet: 10.18.1.0/24
+      - "4242:4242"
