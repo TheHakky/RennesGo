@@ -30,7 +30,6 @@ pipeline {
                 sh 'chmod +x back-end/network.sh'
                 sh 'back-end/network.sh rennesgo_docker_network 172.168.12.'
                 sh 'docker stop back-endpipeline_backend_1 || true'
-                sh 'docker system prune -f'
                 sh 'docker-compose build backend'
                 //}
             }
@@ -42,12 +41,12 @@ pipeline {
                 //}
             }
         }
-        /*stage ('Docker Prune') {
+        stage ('Docker Prune') {
             steps { 
                 //script { 
                 sh 'docker system prune -f'
                 //}
             }
-        }*/
+        }
     }
 }
