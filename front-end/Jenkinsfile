@@ -42,7 +42,8 @@ pipeline {
         }
         stage ('Docker Build') {
             steps {
-                sh 'sudo ./network.sh rennesgo_docker_network 172.168.12.'
+                sh 'chmod +x network.sh'
+                sh './network.sh rennesgo_docker_network 172.168.12.'
                 sh 'docker stop front-endpipeline_frontend_1 || true'
                 sh 'docker system prune -f'
                 sh 'docker rmi -f front-end-image'
