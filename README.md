@@ -21,8 +21,8 @@ vous pourrez rajouter des fonctionnalités, modifier le front-end et le back-end
 
 ### frontend
 
-- [ ] **Base**: test front-end unitaire (nécessite de mocker le backend, et l'API REST), avec https://www.protractortest.org
-- [ ] **Base**: test système (front + back)
+- [X] **Base**: test front-end unitaire (nécessite de mocker le backend, et l'API REST), avec https://www.protractortest.org
+- [X] **Base**: test système (front + back)
 - [X] **Base**: mise en place convention code
 - [X] **Base**: mise en place d'outil d'analyse de code TypeScript
 - [X] **Base**: mise en place mesure couverture de code (echec si < x)
