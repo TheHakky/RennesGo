@@ -121,9 +121,9 @@
                                     <element>PACKAGE</element>
                                     <limits>
                                         <limit>
-                                            <counter>LINE</counter>      <!-- TODO Is LINE adapted? -->
+                                            <counter>LINE</counter>      
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.9</minimum>       <!-- TODO Is this ratio too big? -->
+                                            <minimum>0.9</minimum>       
                                         </limit>
                                     </limits>
                                 </rule>

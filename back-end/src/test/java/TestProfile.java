@@ -11,8 +11,6 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
-// This is a dummy test file to test the good use of jacoco
-// TODO: REMOVE
 class TestProfile {
     private Profile profile;
 
