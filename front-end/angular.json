@@ -120,7 +120,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "proxyConfig": "proxy.confTS.json",
+            "proxyConfig": "proxy.conf.json",
             "devServerTarget": "rennesgo:serve"
           },
           "configurations": {
