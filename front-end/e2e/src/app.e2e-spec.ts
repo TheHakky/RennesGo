@@ -57,6 +57,7 @@ describe('workspace-project App: ', () => {
     expect(page.prefferedExist()).toBeFalsy();
   });
 
+  // tslint:disable-next-line:no-identical-functions
   it('should be able to delete a line from preffered lines', () => {
     // find an element star and click it
     page.FindStarAndClick();
