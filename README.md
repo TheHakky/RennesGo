@@ -9,7 +9,7 @@ vous pourrez rajouter des fonctionnalités, modifier le front-end et le back-end
 
 ### backend
 
-- [ ] ****Base****: test unitaire
+- [X] ****Base****: test unitaire
 - [X] ****Base****: mise en place convention code (checkstyle)
 - [X] ****Base****: mise en place d'outil d'analyse de code (spotbugs)
 - [X] ****Base****: mise en place mesure couverture de code (echec si < x)
