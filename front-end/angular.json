@@ -122,7 +122,7 @@
             "protractorConfig": "e2e/protractor.conf.js",
             "proxyConfig": "proxy.confTS.json",
             "devServerTarget": "rennesgo:serve",
-            "port": 4200
+            "port": 4242
           },
           "configurations": {
             "production": {
