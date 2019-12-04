@@ -2,7 +2,7 @@
 
 ## code
 
-- [X] ****Base****: mettre le code sur un git
+- [X] ****Base****: mettre le code sur git
 vous pourrez rajouter des fonctionnalités, modifier le front-end et le back-end comme vous le souhaitez (ne commencez pas par cette étape).
 
 ## test
